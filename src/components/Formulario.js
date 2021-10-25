@@ -29,7 +29,7 @@ export default function Formulario() {
                     //validacion para telefono
                     if (!valores.telefono) {
                         errores.telefono = 'ingresa un numero de telefono';
-                    } else if(!/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/.test(valores.telefono)) {
+                    } else if(!/^[+]?([0-9]+(?:[0-9]*)?|[0-9]+)$/.test(valores.telefono)) {
                         errores.telefono = 'Favor de ingresar solo numeros del 0 al 9';
                     } 
                     if(!valores.nombreNegocio) { 
@@ -113,19 +113,6 @@ export default function Formulario() {
                 </div>
                 )}
             </Formik>
-        )
-    }
-
-    const mensaje = () => {
-        return (
-            <div data-aos="fade-right" className="fixed z-40 ">   
-                    <div className="bg-black pt-28 xl:bg-transparent xl:pt-40 pb-8 w-screen"> 
-                        <div className="w-5/6 rounded-2xl text-white bg-blue-600  m-auto p-4 shadow-2xl xl:w-4/12 xl:py-6 ">
-                        <div className="text-white pb-1 px-4 rounded-full bg-red-500 relative text-3x float-right top-0 "><NavLink exact to="/prospectos"><b>x</b></NavLink></div> 
-                            <b>Mensaje enviado</b> 
-                        </div>
-                    </div>  
-            </div>
         )
     }
     
