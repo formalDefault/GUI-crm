@@ -101,11 +101,10 @@ function Prospectos() {
      
   const { stateLoading, setStateLoading } = useContext(ContextStates);  
   const { APIDATA } = useContext(ContextStates);   
-  const { listaProspectos, setListaProspectos } = useContext(ContextStates);  
-  const URL = APIDATA;
+  const { setListaProspectos } = useContext(ContextStates);   
 
   useEffect(() => {
-    Axios.get(`${URL}/api/system`)
+    Axios.get(`${APIDATA}/api/system`)
     .then((response) => {
       setStateLoading(false)
       setListaProspectos(response.data); 
