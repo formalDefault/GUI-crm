@@ -59,7 +59,7 @@ export default function Formulario() {
                 }}
             >
                 {( {errors} ) => (
-                <div className="z-40 "> 
+                <div className="z-40 xl:mt-40"> 
                         <div data-aos="fade-right" className="pt-8 mb-8">   
                             <div className="w-5/6 border rounded-md text-black m-auto p-4 shadow-xl "> 
                                 <NavLink exact to="/prospectos"><span className=" relative xl:float-right text-white bg-red-500 px-4 pb-1 rounded-full cursor-pointer"><b>x</b></span></NavLink>

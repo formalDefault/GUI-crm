@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useLocation, NavLink } from 'react-router-dom'
 import { ContextStates } from "../context/Estados";   
 import Axios from 'axios';   
-const estilo = 'text-black bg-white py-2 px-4 rounded-md border-b-2 border-yellow-500 shadow-md'; 
+const estilo = 'text-black bg-white py-2 px-4 border-b-2'; 
 
 function VistaProspectos(props) { 
     const { listaProspectos } = useContext(ContextStates);

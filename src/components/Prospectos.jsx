@@ -25,8 +25,8 @@ const BarraDeInformacion = () => {
       }
 
     return (
-      <div className="bg-white ">
-        <div className="fixed w-screen bg-white border-b text-gray-500 px-4 py-1 text-center flex justify-between">
+      <div className="bg-white">
+        <div className="fixed w-screen bg-white border-b text-gray-500 px-4 xl:px-32 py-1 xl:pt-3 xl:shadow-lg text-center flex justify-between">
           <div>
             <h1 className="text-2xl">{ sinLlamar }</h1>
             <h1 className="text-sm">Sin llamar</h1>
@@ -40,13 +40,13 @@ const BarraDeInformacion = () => {
             <h1 className="text-sm">Rechazados</h1>
           </div> 
           <div onClick={() => mostrarFiltro()}>
-            <i className="fas fa-sort-amount-down-alt text-2xl p-2"></i>
+            <i className="fas fa-sort-amount-down-alt text-2xl p-2 xl:px-4 xl:mt-2 xl:hover:bg-yellow-500 xl:duration-500 xl:hover:text-white rounded-2xl xl:cursor-pointer "></i>
           </div>
         </div>
         {showFilter ? (
           <div
             data-aos="fade-right"
-            className="mt-14 w-screen fixed py-2 px-1 bg-white text-center text-sm border-b shadow-md xl:border-l-2 xl:border-b-2 xl:float-right xl:w-4/12"
+            className="mt-14 xl:mt-16 w-screen fixed py-2 px-1 bg-white text-center text-sm border-b shadow-md xl:border-l-2 xl:border-b-2 xl:float-right xl:w-4/12"
           >
             <select
               className="outline-none bg-white border-b text-black px-2 w-9/12 cursor-pointer"
@@ -76,8 +76,8 @@ const ListarProspectos = () => {
     const { filterOpc } = useContext(ContextStates);    
     let filtro = listaProspectos.filter(prop => prop.estado === filterOpc);  
     return(
-        <div className="mt-14 h-screen">
-            <div className="grid grid-cols-1 gap-4">
+        <div className="mt-14 xl:mt-24 h-screen">
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
                 {filtro.map((i) => {
                 let estilo = `bg-white shadow-md w-full p-2 rounded xl:rounded-xl border text-black duration-500 hover:shadow-2xl cursor-pointer`;
                 let ruta = `/detalles/?type=prospecto&id=${i._id}`;
@@ -86,7 +86,7 @@ const ListarProspectos = () => {
                     <div className={estilo}>
                       <div className="flex justify-between">
                         <h1>{i.nombreNegocio}</h1>
-                        <h1>{i.telefono}</h1>
+                        <h1 className="xl:hidden">{i.telefono}</h1>
                       </div>
                     </div>
                   </NavLink>
@@ -113,7 +113,7 @@ function Prospectos() {
   }, []); 
 
     return (
-      <div> 
+      <div className=""> 
         {stateLoading ? (
           <div className="mt-64 m-auto text-5xl text-center w-3/6">
             <i className=" animate-spin fas fa-circle-notch"></i>

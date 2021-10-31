@@ -7,6 +7,7 @@ import Pendientes from "./components/Pendientes";
 import Prospectos from "./components/Prospectos";
 import Formulario from "./components/Formulario";
 import VistaTarjeta from "./components/VistaTarjeta";
+import Home from "./components/Home";
  
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
 
   const menuOpciones = () => {
     return(
-      <div data-aos="zoom-in"  data-aos-duration="400" className="z-50 text-white float-right py-4 w-5/12 bg-black grid grid-rows gap-y-2">
+      <div data-aos="fade-left"  data-aos-duration="400" className="z-50 xl:hidden text-white float-right py-4 w-5/12 bg-black grid grid-rows gap-y-2">
         <NavLink exact to="/" activeClassName="text-yellow-600" onClick={handleChange} className="px-4 py-2 flex justify-between">
           <i className="fas fa-home text-lg"></i>
           <h1>Home</h1>
@@ -32,15 +33,47 @@ const Navbar = () => {
     )
   }
 
-  return(
-    <div data-aos="fade-down" className="fixed z-50 w-screen ">
-      <div className=" bg-black px-4 py-1 text-white flex justify-between"> 
-        <img onClick={ () => window.location.assign('/') } src={img.Logotipo} alt="logo" className="w-4 cursor-pointer"/>
-        <i onClick={handleChange} className="fas fa-bars text-2xl"></i>
+  return (
+    <div data-aos="fade-down" className="z-50 fixed w-screen ">
+      <div className=" bg-black px-4 py-1 text-white flex justify-between">
+        <img
+          onClick={() => window.location.assign("/")}
+          src={img.Logotipo}
+          alt="logo"
+          className="w-4 cursor-pointer"
+        />
+        <i
+          onClick={handleChange}
+          className="fas fa-bars text-2xl xl:hidden"
+        ></i>
+        <div className="hidden xl:flex pr-8">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="text-yellow-600"
+            className="px-8 py-2 flex justify-between"
+          >
+            <h1>Home</h1>
+          </NavLink>
+          <NavLink
+            className="px-8 py-2 flex justify-between"
+            activeClassName="text-yellow-600"
+            to="/pendientes"
+          >
+            <h1>Pendientes</h1>
+          </NavLink>
+          <NavLink
+            to="/prospectos"
+            activeClassName="text-yellow-600"
+            className="px-8 py-2 flex justify-between"
+          >
+            <h1>Prospectos</h1>
+          </NavLink>
+        </div>
       </div>
       {stateMenu ? menuOpciones() : null}
     </div>
-  )
+  );
 }
 
 const page404 = () => {
@@ -55,35 +88,37 @@ const page404 = () => {
   )
 }
 
-function App() {
+function App() { 
   useEffect(() => {
     Aos.init({ duration: 650 });  
   }, []);  
   
   return (
-    <ContextStates>
-      <Router>
-        {Navbar()}
-        <Switch>
-          <Route exact path="/pendientes">
-            <div className="pt-9"><Pendientes/></div>
-          </Route>
-          <Route exact path="/agregar">
-            <div className="pt-9"><Formulario/> </div> 
-          </Route>
-          <Route exact path="/prospectos">
-            <div className="pt-9"><Prospectos/> </div> 
-          </Route>
-          <Route exact path="/detalles/">
-            <div className="pt-9"><VistaTarjeta/> </div> 
-          </Route>
-          <Route exact path="/">
-            <div className="pt-9">home</div> 
-          </Route>
-          <Route path="*" component={page404} />
-        </Switch>
-      </Router>
-    </ContextStates>
+    <div className="">
+      <ContextStates>
+        <Router>
+          {Navbar()}
+          <Switch>
+            <Route exact path="/pendientes">
+              <div className="pt-9"><Pendientes/></div>
+            </Route>
+            <Route exact path="/agregar">
+              <div className="pt-9"><Formulario/> </div> 
+            </Route>
+            <Route exact path="/prospectos">
+              <div className="pt-9"><Prospectos/> </div> 
+            </Route>
+            <Route exact path="/detalles/">
+              <div className="pt-9"><VistaTarjeta/> </div> 
+            </Route>
+            <Route exact path="/">
+              <div className="pt-9 xl:pt-12"><Home/> </div> 
+            </Route>
+            <Route path="*" component={page404} />
+          </Switch>
+        </Router>
+      </ContextStates>
+    </div>
   );
 }
 

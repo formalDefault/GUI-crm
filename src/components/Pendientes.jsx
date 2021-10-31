@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 
 const barraDeInformacion = () => {
     return(
-        <div className="fixed w-screen bg-white border-b text-gray-500 px-4 py-1 text-center flex justify-between">
+        <div className="fixed xl:px-32 py-1 xl:pt-3 xl:shadow-lg w-screen bg-white border-b text-gray-500 px-4 py-1 text-center flex justify-between">
             <div>
                 <h1 className="text-2xl text-red-500">0</h1>
                 <h1 className="text-sm">Pendientes</h1>
